@@ -33,7 +33,7 @@ const currencyExchange = (state, action) =>
       else
       {
         update.destinationCurrencyValue = formatNumber(action.value);
-        update.sourceCurrencyValue = formatNumber(action.value * rate);
+        update.sourceCurrencyValue = formatNumber(action.value / rate);
         update.readyForExchange = action.value <= state.userFunds[state.sourceCurrency];
       }
 
