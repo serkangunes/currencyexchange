@@ -5,7 +5,7 @@
   "repository": "git",
   "scripts": {
     "start": "webpack-dev-server --hot --inline --config build/webpack.dev.config.js --port 9000 --host 0.0.0.0",
-    "test": " "
+    "build": "node node_modules/webpack/bin/webpack.js -p --config build/webpack.production.config.js"
   },
   "author": "Serkan Gunes",
   "license": "ISC",

@@ -10,7 +10,6 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -56,6 +55,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css', 'styl']
+    extensions: ['.js', '.jsx', '.css', 'styl', 'es6']
   }
 };

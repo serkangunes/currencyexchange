@@ -3,8 +3,7 @@ const path = require('path');
 module.exports = {
   entry: './src/app.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'build/dist/bundle.js'
   },
   module: {
     rules: [
@@ -56,7 +55,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css', 'styl']
   },
   devtool: 'eval-source-map'
 };
