@@ -7,4 +7,4 @@ Download the project
 First install dependencies with `npm i`
 Then type `npm start`
 
-After that open http:localhost:9000
+After that open http://localhost:9000
