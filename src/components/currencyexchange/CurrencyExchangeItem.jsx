@@ -1,40 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux'
 
 import {formatCurrency} from '../../common/NumberUtils';
 import {getRate} from '../../common/NumberUtils';
 import {getSymbol} from '../../common/CurrencySymbols';
-import {PREPARE_FOR_CURRENCY_INPUT, CURRENCY_INPUT, CANCEL_CURRENCY_INPUT} from '../../actions/CurrencyExchangeActions'
 import DecimalInput from '../decimalinput/DecimalInput';
 import s from './currency-exchange.styl';
 
 
 class CurrencyExchangeItem extends React.Component
 {
-  constructor(props)
-  {
-    super(props);
-
-    this.decimalInputFocusHandler = this.decimalInputFocusHandler.bind(this);
-    this.decimalInputBlurHandler = this.decimalInputBlurHandler.bind(this);
-    this.decimalInputValueChangeHandler = this.decimalInputValueChangeHandler.bind(this);
-  }
-
-  decimalInputFocusHandler()
-  {
-    this.props.dispatch(PREPARE_FOR_CURRENCY_INPUT(this.props.debit));
-  }
-
-  decimalInputBlurHandler()
-  {
-    this.props.dispatch(CANCEL_CURRENCY_INPUT(this.props.debit));
-  }
-
-  decimalInputValueChangeHandler(value)
-  {
-    this.props.dispatch(CURRENCY_INPUT(value, this.props.debit));
-  }
-
   render()
   {
     const sourceCurrency = this.props.sourceCurrency;
@@ -62,9 +36,9 @@ class CurrencyExchangeItem extends React.Component
             <DecimalInput numberOfDecimals={2}
                           prefix={debit ? '-' : '+'}
                           value={currencyValue}
-                          focus={this.decimalInputFocusHandler}
-                          blur={this.decimalInputBlurHandler}
-                          onDecimalValueChange={this.decimalInputValueChangeHandler}/>
+                          focus={this.props.decimalInputFocusHandler}
+                          blur={this.props.decimalInputBlurHandler}
+                          onDecimalValueChange={this.props.decimalInputValueChangeHandler}/>
             <p className="mui--text-right">{rateString}</p>
           </div>
         </div>
@@ -73,4 +47,4 @@ class CurrencyExchangeItem extends React.Component
   }
 }
 
-export default connect()(CurrencyExchangeItem);
+export default CurrencyExchangeItem;

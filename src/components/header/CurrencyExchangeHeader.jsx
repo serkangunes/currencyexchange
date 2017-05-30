@@ -1,8 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux'
 import {getSymbol} from '../../common/CurrencySymbols';
 import {formatCurrency, getRate} from '../../common/NumberUtils';
-import {COMPLETE_EXCHANGE} from '../../actions/CurrencyExchangeActions'
 
 import s from './header.styl';
 
@@ -33,7 +31,7 @@ class CurrencyExchangeHeader extends React.Component
         <div className={s['header-exchange-actions']}>
           <button className={s['header-exchange-button'] + ' mui-btn mui-btn--small mui-btn--primary'}
                   disabled={!this.props.readyForExchange}
-                  onClick={() => this.props.dispatch(COMPLETE_EXCHANGE())}>
+                  onClick={this.props.exchangeClickHandler}>
             Exchange
           </button>
         </div>
@@ -42,4 +40,4 @@ class CurrencyExchangeHeader extends React.Component
   }
 }
 
-export default connect()(CurrencyExchangeHeader);
+export default CurrencyExchangeHeader;

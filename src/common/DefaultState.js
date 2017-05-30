@@ -19,7 +19,7 @@ const defaultState = {
   destinationCurrencyPreparedForInput: false,
   destinationCurrencyValue: NaN,
   readyForExchange: false,
-  ratesReady: false
+  ratesReady: true
 };
 
 export default defaultState;
