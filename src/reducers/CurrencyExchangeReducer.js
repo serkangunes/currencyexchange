@@ -3,7 +3,7 @@ import {getRate, formatNumber} from '../common/NumberUtils';
 import defaultState from '../common/DefaultState';
 
 
-const currencyExchange = (state, action) =>
+const currencyExchange = (state = defaultState, action) =>
 {
   let update;
 
@@ -58,7 +58,7 @@ const currencyExchange = (state, action) =>
       update.destinationCurrencyValue = NaN;
       return Object.assign({}, state, update);
     default:
-      return defaultState;
+      return state;
   }
 };
 
